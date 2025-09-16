@@ -1,0 +1,6 @@
+com\db\repository\TradeRepository.class
+com\db\TradeStoreSchedulerApplication.class
+com\db\config\TradeStoreBatchConfig.class
+com\db\config\TradeStoreJobScheduler.class
+com\db\model\Trade.class
+com\db\config\TradeStoreJobCompletionNotificationListener.class

@@ -41,18 +41,24 @@
         - name: unit tests
           run: mvn -B test --file pom.xml
 
-        - name: build the app
-          run: |
-            mvn clean
-            mvn -B package --file pom.xml
+        - name: build the apps
+          run: mvn clean package
             
-        - name: build the docker image
+        - name: build the docker image for Tradestore
           uses: docker/build-push-action@v4
           with:
             context: .
             dockerfile: Dockerfile
             push: false
             tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tradestore:latest
+        
+        - name: build the docker image for Tradestorescheduler
+          uses: docker/build-push-action@v4
+          with:
+            context: .
+            dockerfile: Dockerfile
+            push: false
+            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tradestorescheduler:latest
 
         - name: login to docker hub
           uses: docker/login-action@v1
@@ -60,10 +66,18 @@
             username: ${{ secrets.DOCKER_HUB_USERNAME }}
             password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-        - name: push the docker image to docker hub
+        - name: push the docker image to docker hub for Tradestore
           uses: docker/build-push-action@v4
           with:
             context: .
             dockerfile: Dockerfile
             push: true
             tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tradestore:latest
+            
+        - name: push the docker image to docker hub for Tradestorescheduler
+          uses: docker/build-push-action@v4
+          with:
+            context: .
+            dockerfile: Dockerfile
+            push: true
+            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tradestorescheduler:latest
