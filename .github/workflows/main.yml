@@ -1,5 +1,6 @@
   name: build and deploy tradestore
   on:
+    workflow_dispatch:   # run manually
     push:
       branches:
         - main
@@ -8,7 +9,26 @@
     build-deploy:
       name: build and deploy tradestore
       runs-on: ubuntu-20.04
+          
       steps:
+      
+        - name: Checkout repository
+          uses: actions/checkout@v4
+          
+        - name: Set up KinD (Kubernetes in Docker)
+          uses: helm/kind-action@v1
+          with:
+            cluster_name: kafka-cluster
+        
+        - name: Create namespace
+          run: kubectl create namespace kafka || true
+        
+        - name: Deploy Postgres
+          run: kubectl apply -f postgres.yaml -n kafka
+          
+        - name: Apply Kafka + MongoDB
+          run: kubectl apply -f kafka-kraft-mongodb.yaml -n kafka
+        
         - name: checkout code
           uses: actions/checkout@v3
 
@@ -25,6 +45,7 @@
           run: |
             mvn clean
             mvn -B package --file pom.xml
+            
         - name: build the docker image
           uses: docker/build-push-action@v4
           with:
