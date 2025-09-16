@@ -11,4 +11,4 @@ COPY target/TradeStore-0.0.1.jar /app/tradestore.jar
 EXPOSE 8080
 
 # Step 5: Define the command to run your Spring Boot application
-CMD ["java", "-jar", "/app/tradestore.jar"]
+ENTRYPOINT ["java", "-jar", "/app/tradestore.jar"]
