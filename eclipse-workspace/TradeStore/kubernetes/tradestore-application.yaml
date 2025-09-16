@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tradestore
+  labels:
+    app: tradestore
+spec:
+  replicas: 2 # Desired number of instances of your application
+  selector:
+    matchLabels:
+      app: tradestore
+  template:
+    metadata:
+      labels:
+        app: tradestore
+    spec:
+      containers:
+      - name: tradestore
+        image: tradestore:latest # Replace with your Docker image
+        ports:
+        - containerPort: 8080 # The port your Spring Boot application listens on
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env: # Optional: Environment variables for your application
+        - name: SPRING_PROFILES_ACTIVE
+          value: "kubernetes"
