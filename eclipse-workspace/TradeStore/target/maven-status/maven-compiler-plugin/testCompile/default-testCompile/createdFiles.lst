@@ -1,0 +1,8 @@
+com\db\TradeStoreApplicationTest.class
+com\db\service\TradeServiceTest.class
+com\db\service\KafkaProducerServiceTest.class
+com\db\repository\TradeRepositoryTest.class
+com\db\TradeStoreInvokeProducerTest.class
+com\db\controller\KafkaProducerControllerTest.class
+com\db\service\KafkaConsumerServiceTest.class
+com\db\controller\TradeControllerTest.class

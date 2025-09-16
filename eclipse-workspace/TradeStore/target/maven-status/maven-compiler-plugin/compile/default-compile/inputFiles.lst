@@ -1,0 +1,8 @@
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\controller\KafkaProducerController.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\controller\TradeController.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\model\Trade.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\repository\TradeRepository.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\service\KafkaConsumerService.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\service\KafkaProducerService.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\service\TradeService.java
+C:\Users\singa\eclipse-workspace\TradeStore\src\main\java\com\db\TradeStoreApplication.java

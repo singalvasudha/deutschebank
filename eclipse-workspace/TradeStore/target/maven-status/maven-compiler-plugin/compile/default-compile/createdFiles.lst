@@ -1,0 +1,8 @@
+com\db\service\KafkaProducerService.class
+com\db\controller\KafkaProducerController.class
+com\db\service\TradeService.class
+com\db\repository\TradeRepository.class
+com\db\controller\TradeController.class
+com\db\service\KafkaConsumerService.class
+com\db\model\Trade.class
+com\db\TradeStoreApplication.class
