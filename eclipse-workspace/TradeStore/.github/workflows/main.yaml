@@ -1,5 +1,6 @@
   name: build and deploy tradestore
   on:
+    workflow_dispatch:   # run manually
     push:
       branches:
         - main
