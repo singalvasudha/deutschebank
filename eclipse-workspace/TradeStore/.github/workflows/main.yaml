@@ -1,4 +1,4 @@
-  name: build and deploy spring-api
+  name: build and deploy tradestore
   on:
     push:
       branches:
@@ -6,7 +6,7 @@
 
   jobs:
     build-deploy:
-      name: build and deploy spring-api
+      name: build and deploy tradestore
       runs-on: ubuntu-20.04
       steps:
         - name: checkout code
